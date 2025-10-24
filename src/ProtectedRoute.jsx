@@ -5,7 +5,8 @@ import axios from "axios";
 function ProtectedRoute({ children }) {
   const [isValid, setIsValid] = useState(null);
   const token = localStorage.getItem("adminToken");
-  const API_URL = 'http://localhost:5000/api';
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 
   useEffect(() => {
     const verifyToken = async () => {
