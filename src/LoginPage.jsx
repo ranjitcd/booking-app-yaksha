@@ -19,7 +19,7 @@ function LoginPage() {
         customerName: '',
         email: '',
         phone: '',
-        eventName: 'Chaduranga - Yakshagana Performance',
+        eventName: 'Chaduranga - Yakshagana Performance(Kundapura, Neharu Maidana)',
         eventDate: '2025-11-23',
         ticketType: 'ಫಸ್ಟ್ ಕ್ಲಾಸ್',
         numberOfTickets: 1,
@@ -102,7 +102,7 @@ I will send the payment screenshot in the next message.`;
             customerName: '',
             email: '',
             phone: '',
-            eventName: 'Chaduranga - Yakshagana Performance',
+            eventName: 'Chaduranga - Yakshagana Performance(Kundapura, Neharu Maidana)',
             eventDate: '2025-11-23',
             ticketType: 'ಫಸ್ಟ್ ಕ್ಲಾಸ್', // Add this
             numberOfTickets: 1,
@@ -254,6 +254,7 @@ I will send the payment screenshot in the next message.`;
                                 <p style={styles.eventSubtitle}>A Mythological Tale of Devotion and Valor</p>
                                 <div style={styles.eventDetails}>
                                     <span style={styles.eventDetail}>📅 Nov 23, 2025</span>
+                                    <span style={styles.eventDetail}>Kundapura, Neharu Maidana</span>
                                     <span style={styles.eventDetail}>⏰ 7:00 PM</span>
                                     <span style={styles.eventDetail}>💰 ₹250 - ₹1000</span>
                                 </div>
@@ -293,7 +294,7 @@ I will send the payment screenshot in the next message.`;
                                 <div style={styles.formGroup}>
                                     <label style={styles.label}>Phone Number *</label>
                                     <input
-                                        type="tel"
+                                        type="number"
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleInputChange}
@@ -373,7 +374,7 @@ I will send the payment screenshot in the next message.`;
                                             <p style={styles.qrSubtext}>GPay • PhonePe • Paytm</p>
                                         </div>
                                     </div>
-                                    <p style={styles.upiId}>UPI ID: yakshagana@upi</p>
+                                    <p style={styles.upiId}>UPI ID: 7406714855@ybl</p>
                                 </div>
 
                                 <div style={styles.paymentInstructions}>
