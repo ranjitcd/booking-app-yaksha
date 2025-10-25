@@ -29,6 +29,8 @@ function LoginPage() {
     const [searchId, setSearchId] = useState('');
     const [foundTicket, setFoundTicket] = useState(null);
 
+    console.log("foundTicket", foundTicket)
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
@@ -111,23 +113,23 @@ I will send the payment screenshot in the next message.`;
         setMessage('');
     };
 
-    const handleSearch = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setFoundTicket(null);
-        setMessage('');
+   const handleSearch = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setFoundTicket(null);
+    setMessage('');
 
-        try {
-            const response = await axios.get(`${API_URL}/bookings/${searchId}`);
-            if (response.data.success) {
-                setFoundTicket(response.data.ticket);
-            }
-        } catch (error) {
-            setMessage(`❌ ${error.response?.data?.error || 'Booking not found'}`);
-        } finally {
-            setLoading(false);
+    try {
+        const response = await axios.get(`${API_URL}/bookings/${searchId}`);
+        if (response.data.success) {
+            setFoundTicket(response.data.booking);  
         }
-    };
+    } catch (error) {
+        setMessage(`❌ ${error.response?.data?.error || 'Booking not found'}`);
+    } finally {
+        setLoading(false);
+    }
+};
 
     const totalPrice = formData.numberOfTickets * formData.pricePerTicket;
 
@@ -567,7 +569,7 @@ I will send the payment screenshot in the next message.`;
                                 {foundTicket.status === 'rejected' && (
                                     <div style={{ ...styles.ticketFooter, background: '#f8d7da', borderTop: '2px dashed #dc3545' }}>
                                         <p style={{ margin: 0, color: '#721c24', fontWeight: '600', fontSize: '14px' }}>
-                                            ❌ Payment verification failed. Contact +91 98765 43210 with payment proof.
+                                            ❌ Payment verification failed. Contact +91 8618030423 with payment proof.
                                         </p>
                                     </div>
                                 )}
@@ -581,7 +583,7 @@ I will send the payment screenshot in the next message.`;
                 <div style={styles.footerPattern}></div>
                 <p style={styles.footerText}>🎭 Yakshagana Cultural Trust</p>
                 <p style={styles.footerSubtext}>Preserving Karnataka's Rich Heritage</p>
-                <p style={styles.footerSubtext}>Contact: +91 98765 43210</p>
+                <p style={styles.footerSubtext}>Contact: +91 8618030423</p>
             </footer>
         </div>
     );
@@ -802,13 +804,13 @@ const styles = {
         gap: '20px',
     },
     paymentSummary: {
-        background: '#f9f9f9',
         padding: '18px',
         borderRadius: '15px',
         border: '2px solid #e0e0e0',
     },
     summaryRow: {
         display: 'flex',
+        color: '#333',
         justifyContent: 'space-between',
         padding: '12px 0',
         borderBottom: '1px solid #e0e0e0',
